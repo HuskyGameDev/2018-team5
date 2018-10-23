@@ -82,9 +82,6 @@ namespace VRTK
         protected bool isClimbing;
         protected bool useGrabbedObjectRotation;
 
-        //Added by Brendan
-        public Rigidbody playerBody; //The body of the player that has velocity applied to it.
-
         /// <summary>
         /// The IsClimbing method will return if climbing is currently taking place or not.
         /// </summary>
@@ -96,7 +93,6 @@ namespace VRTK
 
         protected virtual void Awake()
         {
-            /*
             bodyPhysics = (bodyPhysics != null ? bodyPhysics : FindObjectOfType<VRTK_BodyPhysics>());
 
             if (bodyPhysics == null)
@@ -107,7 +103,6 @@ namespace VRTK
             teleporter = (teleporter != null ? teleporter : FindObjectOfType<VRTK_BasicTeleport>());
             
             positionRewind = (positionRewind != null ? positionRewind : FindObjectOfType<VRTK_PositionRewind>());
-            */
 
             headsetCollision = (headsetCollision != null ? headsetCollision : FindObjectOfType<VRTK_HeadsetCollision>());
 
@@ -186,10 +181,9 @@ namespace VRTK
             InitControllerListeners(VRTK_DeviceFinder.GetControllerLeftHand(), state);
             InitControllerListeners(VRTK_DeviceFinder.GetControllerRightHand(), state);
 
-            //InitTeleportListener(state);
+            InitTeleportListener(state);
         }
 
-        /*
 
         protected virtual void InitTeleportListener(bool state)
         {
@@ -214,7 +208,7 @@ namespace VRTK
             }
         }
 
-        */
+        
 
         protected virtual Vector3 GetScaledLocalPosition(Transform objTransform)
         {
@@ -248,7 +242,7 @@ namespace VRTK
 
         protected virtual void Grab(GameObject currentGrabbingController, VRTK_ControllerReference controllerReference, GameObject target)
         {
-            /*
+            
             if (bodyPhysics == null)
             {
                 return;
@@ -258,7 +252,7 @@ namespace VRTK
             bodyPhysics.TogglePreventSnapToFloor(true);
             bodyPhysics.enableBodyCollisions = false;
             bodyPhysics.ToggleOnGround(false);
-            */
+            
 
             isClimbing = true;
             climbingObject = target;
@@ -274,12 +268,12 @@ namespace VRTK
 
         protected virtual void Ungrab(bool carryMomentum, VRTK_ControllerReference controllerReference, GameObject target)
         {
-            /*
+            
             if (bodyPhysics == null)
             {
                 return;
             }
-            */
+            
 
             isClimbing = false;
             
@@ -290,10 +284,10 @@ namespace VRTK
             
             if (IsBodyColliding() && !IsHeadsetColliding())
             {
-                //bodyPhysics.ForceSnapToFloor();
+                bodyPhysics.ForceSnapToFloor();
             }
 
-            //bodyPhysics.enableBodyCollisions = true;
+            bodyPhysics.enableBodyCollisions = true;
 
             if (carryMomentum)
             {
@@ -313,8 +307,8 @@ namespace VRTK
                 }
 
                 //Apply momentum to move player here
-                //bodyPhysics.ApplyBodyVelocity(velocity, true, true);
-                playerBody.velocity.Set(velocity.x, velocity.y, velocity.z);
+                bodyPhysics.ApplyBodyVelocity(velocity, true, true);
+                
             }
 
             grabbingController = null;

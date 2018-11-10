@@ -160,10 +160,14 @@ namespace VRTK
         protected Transform playArea;
         protected Transform headset;
         public Rigidbody bodyRigidbody;
+        [SerializeField]
         protected GameObject bodyColliderContainer;
+        [SerializeField]
         protected GameObject footColliderContainer;
 
+        [SerializeField]
         protected CapsuleCollider bodyCollider;
+        [SerializeField]
         protected CapsuleCollider footCollider;
 
         protected VRTK_CollisionTracker collisionTracker;
@@ -676,18 +680,18 @@ namespace VRTK
             {
                 bodyRigidbody.isKinematic = !state;
             }
-            /*
+            
             if (bodyCollider != null)
             {
                 bodyCollider.isTrigger = !state;
             }
-            */
-            /*
+            
+            
             if (footCollider != null)
             {
                 footCollider.isTrigger = !state;
             }
-            */
+            
             currentBodyCollisionsSetting = state;
         }
 
@@ -999,7 +1003,7 @@ namespace VRTK
         protected virtual void GenerateRigidbody()
         {
             
-            //bodyRigidbody = playArea.GetComponent<Rigidbody>();
+            bodyRigidbody = playArea.GetComponent<Rigidbody>();
             if (bodyRigidbody == null)
             {
                 generateRigidbody = true;
@@ -1040,17 +1044,17 @@ namespace VRTK
                     bodyColliderContainer.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
                 }
 
-                //bodyCollider = GenerateCapsuleCollider(bodyColliderContainer, bodyRadius);
+                bodyCollider = GenerateCapsuleCollider(bodyColliderContainer, bodyRadius);
 
                 //THIS NEEDS TO BE GONE, CHANGE BY BAMALETS
-                //GenerateFootCollider();
+                GenerateFootCollider();
             }
             
         }
 
         protected virtual void GenerateFootCollider()
         {
-            /*
+            
             if (CalculateStepUpYOffset() > 0f)
             {
                 if (customFootColliderContainer != null)
@@ -1065,7 +1069,7 @@ namespace VRTK
 
                 footCollider = GenerateCapsuleCollider(footColliderContainer, 0f);
             }
-            */
+            
         }
 
         protected virtual void CreateCollider()
@@ -1081,7 +1085,7 @@ namespace VRTK
             VRTK_PlayerObject.SetPlayerObject(playArea.gameObject, VRTK_PlayerObject.ObjectTypes.CameraRig);
 
             GenerateRigidbody();
-            //GenerateBodyCollider();
+            GenerateBodyCollider();
 
             if (playArea.gameObject.layer == 0)
             {

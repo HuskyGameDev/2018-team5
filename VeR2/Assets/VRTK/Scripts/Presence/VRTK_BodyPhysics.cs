@@ -676,15 +676,18 @@ namespace VRTK
             {
                 bodyRigidbody.isKinematic = !state;
             }
+            /*
             if (bodyCollider != null)
             {
                 bodyCollider.isTrigger = !state;
             }
+            */
+            /*
             if (footCollider != null)
             {
                 footCollider.isTrigger = !state;
             }
-
+            */
             currentBodyCollisionsSetting = state;
         }
 
@@ -995,8 +998,8 @@ namespace VRTK
 
         protected virtual void GenerateRigidbody()
         {
-            /*
-            bodyRigidbody = playArea.GetComponent<Rigidbody>();
+            
+            //bodyRigidbody = playArea.GetComponent<Rigidbody>();
             if (bodyRigidbody == null)
             {
                 generateRigidbody = true;
@@ -1004,7 +1007,7 @@ namespace VRTK
                 bodyRigidbody.mass = bodyMass;
                 bodyRigidbody.freezeRotation = true;
             }
-            */
+            
         }
 
         protected virtual CapsuleCollider GenerateCapsuleCollider(GameObject parent, float setRadius)
@@ -1021,28 +1024,28 @@ namespace VRTK
 
         protected virtual void GenerateBodyCollider()
         {
-            /*
+            
             if (bodyColliderContainer == null)
             {
                 if (customBodyColliderContainer != null)
                 {
-                    Debug.Log("111");
+                    
                     bodyColliderContainer = InstantiateColliderContainer(customBodyColliderContainer, BODY_COLLIDER_CONTAINER_NAME, playArea);
                     bodyCollider = bodyColliderContainer.GetComponent<CapsuleCollider>();
                 }
                 else
                 {
-                    Debug.Log("DAB 111");
+                    
                     bodyColliderContainer = CreateColliderContainer(BODY_COLLIDER_CONTAINER_NAME, playArea);
                     bodyColliderContainer.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
                 }
 
-                bodyCollider = GenerateCapsuleCollider(bodyColliderContainer, bodyRadius);
+                //bodyCollider = GenerateCapsuleCollider(bodyColliderContainer, bodyRadius);
 
                 //THIS NEEDS TO BE GONE, CHANGE BY BAMALETS
                 //GenerateFootCollider();
             }
-            */
+            
         }
 
         protected virtual void GenerateFootCollider()
@@ -1078,7 +1081,7 @@ namespace VRTK
             VRTK_PlayerObject.SetPlayerObject(playArea.gameObject, VRTK_PlayerObject.ObjectTypes.CameraRig);
 
             GenerateRigidbody();
-            GenerateBodyCollider();
+            //GenerateBodyCollider();
 
             if (playArea.gameObject.layer == 0)
             {

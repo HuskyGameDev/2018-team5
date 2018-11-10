@@ -995,6 +995,7 @@ namespace VRTK
 
         protected virtual void GenerateRigidbody()
         {
+            /*
             bodyRigidbody = playArea.GetComponent<Rigidbody>();
             if (bodyRigidbody == null)
             {
@@ -1003,6 +1004,7 @@ namespace VRTK
                 bodyRigidbody.mass = bodyMass;
                 bodyRigidbody.freezeRotation = true;
             }
+            */
         }
 
         protected virtual CapsuleCollider GenerateCapsuleCollider(GameObject parent, float setRadius)
@@ -1019,6 +1021,7 @@ namespace VRTK
 
         protected virtual void GenerateBodyCollider()
         {
+            /*
             if (bodyColliderContainer == null)
             {
                 if (customBodyColliderContainer != null)
@@ -1039,10 +1042,12 @@ namespace VRTK
                 //THIS NEEDS TO BE GONE, CHANGE BY BAMALETS
                 //GenerateFootCollider();
             }
+            */
         }
 
         protected virtual void GenerateFootCollider()
         {
+            /*
             if (CalculateStepUpYOffset() > 0f)
             {
                 if (customFootColliderContainer != null)
@@ -1057,6 +1062,7 @@ namespace VRTK
 
                 footCollider = GenerateCapsuleCollider(footColliderContainer, 0f);
             }
+            */
         }
 
         protected virtual void CreateCollider()

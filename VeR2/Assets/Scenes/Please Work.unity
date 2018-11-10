@@ -1017,7 +1017,7 @@ MonoBehaviour:
   teleporter: {fileID: 0}
   customBodyColliderContainer: {fileID: 0}
   customFootColliderContainer: {fileID: 0}
-  bodyRigidbody: {fileID: 1478464214}
+  bodyRigidbody: {fileID: 0}
 --- !u!114 &1090324287
 MonoBehaviour:
   m_ObjectHideFlags: 0

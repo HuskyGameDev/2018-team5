@@ -1033,20 +1033,29 @@ namespace VRTK
             {
                 if (customBodyColliderContainer != null)
                 {
+<<<<<<< HEAD
                     
+=======
+>>>>>>> parent of ffc4bb4... First Change to autogen
                     bodyColliderContainer = InstantiateColliderContainer(customBodyColliderContainer, BODY_COLLIDER_CONTAINER_NAME, playArea);
                     bodyCollider = bodyColliderContainer.GetComponent<CapsuleCollider>();
                 }
                 else
                 {
+<<<<<<< HEAD
                     
+=======
+>>>>>>> parent of ffc4bb4... First Change to autogen
                     bodyColliderContainer = CreateColliderContainer(BODY_COLLIDER_CONTAINER_NAME, playArea);
                     bodyColliderContainer.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
                 }
 
                 bodyCollider = GenerateCapsuleCollider(bodyColliderContainer, bodyRadius);
 
+<<<<<<< HEAD
                 //THIS NEEDS TO BE GONE, CHANGE BY BAMALETS
+=======
+>>>>>>> parent of ffc4bb4... First Change to autogen
                 GenerateFootCollider();
             }
             

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CookableObject : MonoBehaviour {
 
-    bool IsCooked;
+    public bool IsCooked;
     Renderer ObjMat;
 
 	// Use this for initialization

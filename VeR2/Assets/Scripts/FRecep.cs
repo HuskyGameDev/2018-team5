@@ -16,8 +16,10 @@ public class FRecep : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (OVRInput.GetDown(OVRInput.Button.One)) {
-            Cook();
+        if (OVRInput.GetDown(OVRInput.Button.One) && WhatToDo == 0) {
+            Act();
+        } else if (OVRInput.GetDown(OVRInput.Button.Two)) {
+            Act();
         }
 	}
     
@@ -25,6 +27,28 @@ public class FRecep : MonoBehaviour {
     public void Act() {
         if(WhatToDo == 0) {
             Cook();
+        } else if (WhatToDo == 1) {
+            Airlock();
+        }
+    }
+
+    //Throw objects out of airlock
+    private void Airlock() {
+        if (true) { //Temp spot for making sure the door is locked
+            for (int i = 0; i < ToCook.Count; i++) {
+                if (ToCook[i].IsCooked) {
+                    Destroy(ToCook[i].gameObject);
+                }
+            }
+        }
+    }
+
+    //Cook objects in trigger
+    public void Cook() {
+        if (true) { //Temp spot for making sure the door is locked
+            for (int i = 0; i < ToCook.Count; i++) {
+                ToCook[i].Cooked();
+            }
         }
     }
 
@@ -36,6 +60,8 @@ public class FRecep : MonoBehaviour {
 
         }
     }
+    
+
 
     private void OnTriggerExit(Collider other) {
         if (other.transform.CompareTag("Cookable")) {
@@ -45,12 +71,5 @@ public class FRecep : MonoBehaviour {
         }
     }
 
-    //Cook objects in trigger
-    public void Cook() {
-        if (true) { //Temp spot for making sure the door is locked
-            for(int i = 0; i < ToCook.Count; i++) {
-                ToCook[i].Cooked();
-            }
-        }
-    }
+
 }

@@ -808,6 +808,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350434d2d64bcbd489e0ec0b05f6fcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xMin: 0.3
+  xMax: 1
+  yMin: -0.3
+  yMax: 0.3
+  zMin: 0
+  zMax: 0.6
   go: {fileID: 1954316675822364, guid: 5ce27ebf49ae32544935bccd46e209e8, type: 2}
   dispenseLocation: {fileID: 1406153957}
 --- !u!1001 &60846799

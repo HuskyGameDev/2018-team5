@@ -25,7 +25,9 @@
             VRTK_Logger.Info("Pushed");
 
             GameObject newGo = (GameObject)Instantiate(go, dispenseLocation.position, Quaternion.identity);
-            Destroy(newGo, 10f);
+            Rigidbody rb = newGo.GetComponent<Rigidbody>();
+            rb.velocity = new Vector3(Random.Range(0.3f,1f), Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f));
+            //Destroy(newGo, 10f);
         }
     }
 }

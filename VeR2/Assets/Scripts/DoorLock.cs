@@ -15,10 +15,8 @@ public class DoorLock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (locked)
-        {
-            door.constraints.
-        }
+		if (locked) { door.isKinematic = true; }
+        else { door.isKinematic = false; }
 	}
 
     public bool isLocked ()

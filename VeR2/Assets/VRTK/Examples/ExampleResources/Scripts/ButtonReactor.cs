@@ -3,34 +3,31 @@
     using UnityEngine;
     using UnityEventHelper;
 
-    // modified VRTK code - spawns an object upon button press
-
     public class ButtonReactor : MonoBehaviour
     {
-        public float xMin, xMax, yMin, yMax, zMin, zMax; // parameters for exit velocity
-        public GameObject go; // reference to the object being spawned
-        public Transform dispenseLocation; // reference to the location to spawn at
+        public GameObject go;
+        public Transform dispenseLocation;
 
-        private VRTK_Button_UnityEvents buttonEvents; // VRTK script to register the button press
+        private VRTK_Button_UnityEvents buttonEvents;
 
         private void Start()
         {
-            buttonEvents = GetComponent<VRTK_Button_UnityEvents>(); 
-            if (buttonEvents == null) // instantiates buttonEvents if not already so
+            buttonEvents = GetComponent<VRTK_Button_UnityEvents>();
+            if (buttonEvents == null)
             {
                 buttonEvents = gameObject.AddComponent<VRTK_Button_UnityEvents>();
             }
-            buttonEvents.OnPushed.AddListener(handlePush); // when button is pressed, create object with handlePush
+            buttonEvents.OnPushed.AddListener(handlePush);
         }
 
-        private void handlePush(object sender, Control3DEventArgs e) // create object at location with random velocity
+        private void handlePush(object sender, Control3DEventArgs e)
         {
-            VRTK_Logger.Info("Pushed"); // logs object spawn(?)
+            VRTK_Logger.Info("Pushed");
 
-            GameObject newGo = (GameObject)Instantiate(go, dispenseLocation.position, Quaternion.identity); // creates new object
-            Rigidbody rb = newGo.GetComponent<Rigidbody>(); // reference to rigidbody to manipulate velocity
-            rb.velocity = new Vector3(Random.Range(xMin,xMax), Random.Range(yMin, yMax), Random.Range(zMin, zMax)); // random velocity within specified range
-            //Destroy(newGo, 10f); // despawn object after certain amount of time
+            GameObject newGo = (GameObject)Instantiate(go, dispenseLocation.position, Quaternion.identity);
+            Rigidbody rb = newGo.GetComponent<Rigidbody>();
+            rb.velocity = new Vector3(Random.Range(0.3f,1f), Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f));
+            //Destroy(newGo, 10f);
         }
     }
 }

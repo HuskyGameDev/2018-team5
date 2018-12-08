@@ -1,13 +1,14 @@
-﻿namespace VRTK.Examples
-{
+﻿namespace VRTK.Examples{
+
+    using System.Collections;
+    using System.Collections.Generic;
     using UnityEngine;
     using UnityEventHelper;
 
-    public class ButtonReactor : MonoBehaviour
+    public class ButtonDoorLock : MonoBehaviour
     {
-        public float xMin, xMax, yMin, yMax, zMin, zMax;
-        public GameObject go;
-        public Transform dispenseLocation;
+
+        public DoorLock Door;
 
         private VRTK_Button_UnityEvents buttonEvents;
 
@@ -25,10 +26,9 @@
         {
             VRTK_Logger.Info("Pushed");
 
-            GameObject newGo = (GameObject)Instantiate(go, dispenseLocation.position, Quaternion.identity);
-            Rigidbody rb = newGo.GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(Random.Range(xMin,xMax), Random.Range(yMin, yMax), Random.Range(zMin, zMax));
-            //Destroy(newGo, 10f);
+            Door.setLocked();
         }
     }
 }
+
+

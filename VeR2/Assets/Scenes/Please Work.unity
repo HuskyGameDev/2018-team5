@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c470e0fcd31c21438a7dcb4b03e46ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCooked: 0
 --- !u!114 &128646940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c470e0fcd31c21438a7dcb4b03e46ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCooked: 0
 --- !u!114 &646074356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1912,6 +1914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c470e0fcd31c21438a7dcb4b03e46ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCooked: 0
 --- !u!114 &1490942007
 MonoBehaviour:
   m_ObjectHideFlags: 0

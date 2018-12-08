@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cookable
+  - Cubes
+  - Spheres
+  - Leg
+  - Arm
+  - Saucers
+  - Torso
+  - OtherSaucers
+  - Bun
   layers:
   - Default
   - TransparentFX

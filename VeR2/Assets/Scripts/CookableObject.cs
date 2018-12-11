@@ -14,7 +14,9 @@ public class CookableObject : MonoBehaviour {
 	}
 
     public void Cooked() {
-        IsCooked = true;
-        ObjMat.material.color = Color.red;
+        if (!IsCooked) {
+            IsCooked = true;
+            ObjMat.material.color = Color.red;
+        }
     }
 }

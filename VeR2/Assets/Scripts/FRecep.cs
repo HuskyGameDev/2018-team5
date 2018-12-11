@@ -16,11 +16,13 @@ public class FRecep : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         if (OVRInput.GetDown(OVRInput.Button.One) && WhatToDo == 0) {
             Act();
         } else if (OVRInput.GetDown(OVRInput.Button.Two)) {
             Act();
         }
+        */
 	}
     
     //When the corresponding button is hit
@@ -36,7 +38,7 @@ public class FRecep : MonoBehaviour {
     private void Airlock() {
         if (true) { //Temp spot for making sure the door is locked
             for (int i = 0; i < ToCook.Count; i++) {
-                if (ToCook[i].IsCooked) {
+                if (ToCook[i].IsCooked || ToCook[i].transform.CompareTag("Cookable")) {
                     Destroy(ToCook[i].gameObject);
                 }
             }
